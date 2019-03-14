@@ -53,7 +53,7 @@ class handlerForm
 
     let validateForm = (e) => {
       e.preventDefault();
-      let data = {};
+      let data = [];
       
       let input = e.srcElement;
       console.log(input[0].name);
@@ -63,7 +63,9 @@ class handlerForm
 
         }
         else{
-          data.input = input[i].value;
+          var a = input[i].name;
+          var b = input[i].value;
+          data.push(new Object({name:a, value: b}));
         }
       }
 
