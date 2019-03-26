@@ -1,3 +1,5 @@
+// "use strict"
+
 class handlerForm
 {
   constructor(identificator = "*", action, method){
@@ -6,7 +8,7 @@ class handlerForm
     this.method = method;
   }
 
-  getElement = (identificator) => {
+  getElement(identificator){
     // Возвращает элемент формы
     let defineAttribute = () => {
       // Определяет поиск объекта по классу или идентификатору
@@ -44,7 +46,7 @@ class handlerForm
     return defineAttribute(this.identificator);
   }
 
-  sendForm = (getElement) => {
+  sendForm(getElement){
 
     let sendRequest = (method, url, data) => {
       let request = new XMLHttpRequest();
@@ -60,18 +62,18 @@ class handlerForm
 
       for (let i=0; i<input.length-1; i++){
         if(input[i].value == ""){
-
+          // Call func alert
         }
         else{
-          var a = input[i].name;
-          var b = input[i].value;
+          let a = input[i].name;
+          let b = input[i].value;
           data.push(new Object({name:a, value: b}));
         }
       }
 
       console.log(data);
 
-      return e;
+      return data;
     }
 
     for (let i=0; i<getElement.length; i++){
@@ -82,7 +84,7 @@ class handlerForm
 
   }
 
-  hand = () =>{
+  hand(){
     this.sendForm(this.getElement(this.identificator));
   }
 }
